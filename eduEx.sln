@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30104.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eduEx", "eduEx\eduEx.csproj", "{0E2C74AC-C81C-4CC6-B88D-81192623A66D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{27E5499B-3C1D-4586-B4C9-FED6CBDC6CB2}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE = LICENSE
+		LICENSE.spdx = LICENSE.spdx
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0E2C74AC-C81C-4CC6-B88D-81192623A66D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E2C74AC-C81C-4CC6-B88D-81192623A66D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E2C74AC-C81C-4CC6-B88D-81192623A66D}.Debug|x64.ActiveCfg = Debug|x64
+		{0E2C74AC-C81C-4CC6-B88D-81192623A66D}.Debug|x64.Build.0 = Debug|x64
+		{0E2C74AC-C81C-4CC6-B88D-81192623A66D}.Debug|x86.ActiveCfg = Debug|x86
+		{0E2C74AC-C81C-4CC6-B88D-81192623A66D}.Debug|x86.Build.0 = Debug|x86
+		{0E2C74AC-C81C-4CC6-B88D-81192623A66D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E2C74AC-C81C-4CC6-B88D-81192623A66D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E2C74AC-C81C-4CC6-B88D-81192623A66D}.Release|x64.ActiveCfg = Release|x64
+		{0E2C74AC-C81C-4CC6-B88D-81192623A66D}.Release|x64.Build.0 = Release|x64
+		{0E2C74AC-C81C-4CC6-B88D-81192623A66D}.Release|x86.ActiveCfg = Release|x86
+		{0E2C74AC-C81C-4CC6-B88D-81192623A66D}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F80572CA-868B-4472-9532-E4FF2B3AB66A}
+	EndGlobalSection
+EndGlobal

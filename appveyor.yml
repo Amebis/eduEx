@@ -1,0 +1,17 @@
+version: 1.0.0.{build}
+image: Visual Studio 2019
+before_build:
+  - nuget restore -Verbosity quiet
+configuration:
+  - Debug
+  - Release
+platform:
+  - x86
+  - x64
+build:
+  project: eduEx.sln
+  parallel: true
+  verbosity: minimal
+artifacts:
+  - path: bin\$(configuration)\$(platform)\eduEx.dll
+  - path: bin\$(configuration)\$(platform)\eduEx.pdb
