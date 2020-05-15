@@ -6,8 +6,8 @@
 */
 
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 
 namespace eduEx.System
 {
@@ -54,26 +54,27 @@ namespace eduEx.System
         /// <returns>Array of bytes</returns>
         public static byte[] FromHexToBin(this string hex)
         {
-            var result = new List<byte>();
-            byte x = 0xff;
-            foreach (var c in hex)
+            using (var s = new MemoryStream(hex.Length / 2))
             {
-                byte n;
-                if ('0' <= c && c <= '9') n = (byte)(c - '0');
-                else if ('A' <= c && c <= 'F') n = (byte)(c - 'A' + 10);
-                else if ('a' <= c && c <= 'f') n = (byte)(c - 'a' + 10);
-                else continue;
-
-                if ((x & 0xf) != 0)
-                    x = (byte)(n << 4);
-                else
+                byte x = 0xff;
+                foreach (var c in hex)
                 {
-                    result.Add((byte)(x | n));
-                    x = 0xff;
-                }
-            }
+                    byte n;
+                    if ('0' <= c && c <= '9') n = (byte)(c - '0');
+                    else if ('A' <= c && c <= 'F') n = (byte)(c - 'A' + 10);
+                    else if ('a' <= c && c <= 'f') n = (byte)(c - 'a' + 10);
+                    else continue;
 
-            return result.ToArray();
+                    if ((x & 0xf) != 0)
+                        x = (byte)(n << 4);
+                    else
+                    {
+                        s.WriteByte((byte)(x | n));
+                        x = 0xff;
+                    }
+                }
+                return s.GetBuffer().SubArray(0, (int)s.Length);
+            }
         }
 
         /// <summary>
