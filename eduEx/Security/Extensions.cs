@@ -27,19 +27,18 @@ namespace eduEx.Security
             {
                 bstr1 = Marshal.SecureStringToBSTR(ss1);
                 bstr2 = Marshal.SecureStringToBSTR(ss2);
+                var x = 0;
                 var length1 = Marshal.ReadInt32(bstr1, -4);
                 var length2 = Marshal.ReadInt32(bstr2, -4);
-                if (length1 != length2)
-                    return false;
-
-                for (int x = 0; x < length1; x += 2)
+                var equal = true;
+                for (x = 0; x < length1 && x < length2; x += 2)
                 {
                     var b1 = Marshal.ReadInt16(bstr1, x);
                     var b2 = Marshal.ReadInt16(bstr2, x);
-                    if (b1 != b2) return false;
+                    equal &= b1 == b2;
                 }
-
-                return true;
+                equal &= x >= length1 && x >= length2;
+                return equal;
             }
             finally
             {
