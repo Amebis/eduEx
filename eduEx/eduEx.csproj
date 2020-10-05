@@ -31,9 +31,6 @@
     <Compile Include="System\Extensions.cs" />
     <Compile Include="System\IO\Extensions.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="eduEx.wxs" />
-  </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\Default.targets" />
