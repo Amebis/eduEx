@@ -99,11 +99,11 @@ namespace eduEx.ASN1
         }
 
         /// <summary>
-        /// Reads object ID from ASN.1 data stream
+        /// Reads object identifier from ASN.1 data stream
         /// </summary>
         /// <param name="reader">Stream of ASN.1 data</param>
-        /// <returns>Object ID</returns>
-        public static Oid ReadASN1ObjectID(this BinaryReader reader)
+        /// <returns>Object identifier</returns>
+        public static Oid ReadASN1ObjectId(this BinaryReader reader)
         {
             // OBJECT IDENTIFIER
             if (reader.ReadByte() != 0x06)
