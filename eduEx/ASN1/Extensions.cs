@@ -47,7 +47,7 @@ namespace eduEx.ASN1
 
             // Read length.
             var length = reader.ReadASN1Length();
-            long data_end = length + reader.BaseStream.Position;
+            long dataEnd = length + reader.BaseStream.Position;
 
             try
             {
@@ -57,7 +57,7 @@ namespace eduEx.ASN1
             finally
             {
                 // Make stream consistent by seeking to the end of the record.
-                reader.BaseStream.Seek(data_end, SeekOrigin.Begin);
+                reader.BaseStream.Seek(dataEnd, SeekOrigin.Begin);
             }
         }
 
@@ -77,12 +77,12 @@ namespace eduEx.ASN1
 
             // Skip padding.
             var i = 0;
-            var is_positive = data[i] < 0x80;
-            var padding = is_positive ? (byte)0x00 : (byte)0xff;
+            var isPositive = data[i] < 0x80;
+            var padding = isPositive ? (byte)0x00 : (byte)0xff;
             for (; ; i++)
             {
                 if (i >= length)
-                    return is_positive ? 0 : -1;
+                    return isPositive ? 0 : -1;
                 else if (data[i] != padding)
                     break;
             }
@@ -91,7 +91,7 @@ namespace eduEx.ASN1
                 throw new ArgumentOutOfRangeException();
 
             // Parse integer.
-            int value = is_positive ? data[i] : data[i] - 0x100;
+            int value = isPositive ? data[i] : data[i] - 0x100;
             for (i++; i < length; i++)
                 value = value * 0x100 + data[i];
 
@@ -113,7 +113,7 @@ namespace eduEx.ASN1
             var length = reader.ReadASN1Length();
             if (length < 1)
                 throw new ArgumentOutOfRangeException(nameof(length));
-            long data_end = length + reader.BaseStream.Position;
+            long dataEnd = length + reader.BaseStream.Position;
 
             try
             {
@@ -147,7 +147,7 @@ namespace eduEx.ASN1
             finally
             {
                 // Make stream consistent by seeking to the end of the record.
-                reader.BaseStream.Seek(data_end, SeekOrigin.Begin);
+                reader.BaseStream.Seek(dataEnd, SeekOrigin.Begin);
             }
         }
 
@@ -161,7 +161,7 @@ namespace eduEx.ASN1
             // SEQUENCE(RSAPrivateKey)
             if (reader.ReadByte() != 0x30)
                 throw new InvalidDataException();
-            long data_end = reader.ReadASN1Length() + reader.BaseStream.Position;
+            long dataEnd = reader.ReadASN1Length() + reader.BaseStream.Position;
 
             try
             {
@@ -196,7 +196,7 @@ namespace eduEx.ASN1
             finally
             {
                 // Make stream consistent by seeking to the end of the record.
-                reader.BaseStream.Seek(data_end, SeekOrigin.Begin);
+                reader.BaseStream.Seek(dataEnd, SeekOrigin.Begin);
             }
         }
 
@@ -224,10 +224,10 @@ namespace eduEx.ASN1
                 if (i + 1 >= length || data[i] != 0x00)
                 {
                     // Strip the leading zero(s).
-                    var length_final = length - i;
-                    var data_final = new byte[length_final];
-                    Array.Copy(data, i, data_final, 0, length_final);
-                    return data_final;
+                    var finalLength = length - i;
+                    var finalData = new byte[finalLength];
+                    Array.Copy(data, i, finalData, 0, finalLength);
+                    return finalData;
                 }
             }
         }
@@ -236,17 +236,17 @@ namespace eduEx.ASN1
         /// Inserts leading zero padding
         /// </summary>
         /// <param name="data">Raw unsigned integer data (big-endian)</param>
-        /// <param name="length_final">Required width</param>
+        /// <param name="finalLength">Required width</param>
         /// <returns>Raw unsigned integer data (big-endian)</returns>
-        private static byte[] AddPositivePadding(byte[] data, int length_final)
+        private static byte[] AddPositivePadding(byte[] data, int finalLength)
         {
             var length = data.Length;
-            if (length < length_final)
+            if (length < finalLength)
             {
                 // Add leading zero(s).
-                var data_final = new byte[length_final];
-                Array.Copy(data, 0, data_final, length_final - length, length);
-                data = data_final;
+                var finalData = new byte[finalLength];
+                Array.Copy(data, 0, finalData, finalLength - length, length);
+                data = finalData;
             }
 
             return data;
