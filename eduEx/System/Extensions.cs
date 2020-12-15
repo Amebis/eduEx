@@ -85,7 +85,7 @@ namespace eduEx.System
         /// <returns>Left part of the string of <paramref name="length"/> characters or less</returns>
         public static string Left(this string str, int length)
         {
-            if (String.IsNullOrEmpty(str))
+            if (string.IsNullOrEmpty(str))
                 return str;
 
             return str.Length <= length ? str : str.Substring(0, length);

@@ -28,10 +28,10 @@ namespace eduEx.ASN1
             var b = reader.ReadByte();
             switch (b)
             {
-                case 0x81: return                                             reader.ReadByte();
+                case 0x81: return reader.ReadByte();
                 case 0x82: return (ushort)IPAddress.NetworkToHostOrder((short)reader.ReadUInt16());
-                case 0x84: return         IPAddress.NetworkToHostOrder((int  )reader.ReadUInt32());
-                default  : return b;
+                case 0x84: return IPAddress.NetworkToHostOrder((int)reader.ReadUInt32());
+                default: return b;
             }
         }
 
@@ -182,7 +182,7 @@ namespace eduEx.ASN1
                 };
 
                 // .NET does not like PKCS padding. However, it still requires RSA parameter lengths to be in sync.
-                int length = Math.Max(rsa.Modulus.Length/2, Math.Max(rsa.D.Length/2, Math.Max(rsa.P.Length, Math.Max(rsa.Q.Length, Math.Max(rsa.DP.Length, Math.Max(rsa.DQ.Length, rsa.InverseQ.Length))))));
+                int length = Math.Max(rsa.Modulus.Length / 2, Math.Max(rsa.D.Length / 2, Math.Max(rsa.P.Length, Math.Max(rsa.Q.Length, Math.Max(rsa.DP.Length, Math.Max(rsa.DQ.Length, rsa.InverseQ.Length))))));
                 rsa.Modulus = AddPositivePadding(rsa.Modulus, length * 2);
                 rsa.D = AddPositivePadding(rsa.D, length * 2);
                 rsa.P = AddPositivePadding(rsa.P, length);
