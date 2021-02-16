@@ -1,7 +1,7 @@
 ﻿/*
     eduEx - Extensions for .NET
 
-    Copyright: 2020 The Commons Conservancy eduVPN Programme
+    Copyright: 2021 The Commons Conservancy eduVPN Programme
     SPDX-License-Identifier: GPL-3.0+
 */
 
@@ -15,7 +15,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Extensions for .NET")]
 [assembly: AssemblyCompany("SURF")]
 [assembly: AssemblyProduct("eduEx")]
-[assembly: AssemblyCopyright("Copyright © 2020 The Commons Conservancy eduVPN Programme")]
+[assembly: AssemblyCopyright("Copyright © 2021 The Commons Conservancy eduVPN Programme")]
 [assembly: NeutralResourcesLanguage("en-US")]
 
 // Setting ComVisible to false makes the types in this assembly not visible
