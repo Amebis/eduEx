@@ -19,7 +19,7 @@
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
-  <Import Project="$(SolutionDir)\Default.CSharp.props" />
+  <Import Project="$(SolutionDir)Default.CSharp.props" />
   <ItemGroup>
     <Reference Include="System" />
   </ItemGroup>
@@ -34,5 +34,5 @@
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="$(SolutionDir)\Default.targets" />
+  <Import Project="$(SolutionDir)Default.targets" />
 </Project>
