@@ -20,7 +20,7 @@ namespace System.Collections.Generic
         /// <param name="i">Dictionary with locale name as keys</param>
         /// <param name="fallback">Fallback value, when the dictionary is empty</param>
         /// <returns>Localized value; <paramref name="fallback"/> when the dictionary is empty.</returns>
-        public static T GetLocalized<T>(this Dictionary<string, T> i, T fallback = default)
+        public static T GetLocalized<T>(this IDictionary<string, T> i, T fallback = default)
         {
             // Get value according to thread UI culture.
             if (i.TryGetValue(Thread.CurrentThread.CurrentUICulture.IetfLanguageTag, out T value) ||
