@@ -8,6 +8,7 @@
 using System;
 using System.Diagnostics;
 using System.IO;
+using System.Security;
 
 namespace eduEx.System
 {
@@ -45,6 +46,19 @@ namespace eduEx.System
             T[] result = new T[length];
             Array.Copy(data, index, result, 0, length);
             return result;
+        }
+
+        /// <summary>
+        /// Sets a range of elements in an array to the default value of each element type
+        /// </summary>
+        /// <typeparam name="T">Array element type</typeparam>
+        /// <param name="data">The Array</param>
+        /// <param name="index">Starting index</param>
+        /// <param name="length">Number of elements to clear</param>
+        public static void Clear<T>(this T[] data, long index, long length)
+        {
+            for (; index < length; index++)
+                data[index] = default;
         }
 
         /// <summary>
