@@ -26,7 +26,7 @@ namespace eduEx.System
         [DebuggerStepThrough]
         public static T[] SubArray<T>(this T[] data, long index)
         {
-            T[] result = new T[data.LongLength - index];
+            var result = new T[data.LongLength - index];
             Array.Copy(data, index, result, 0, result.LongLength);
             return result;
         }
@@ -42,7 +42,7 @@ namespace eduEx.System
         [DebuggerStepThrough]
         public static T[] SubArray<T>(this T[] data, long index, long length)
         {
-            T[] result = new T[length];
+            var result = new T[length];
             Array.Copy(data, index, result, 0, length);
             return result;
         }

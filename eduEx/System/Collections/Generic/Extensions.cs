@@ -24,7 +24,7 @@ namespace System.Collections.Generic
         public static T GetLocalized<T>(this IDictionary<string, T> i, T fallback = default)
         {
             // Get value according to thread UI culture.
-            if (i.TryGetValue(Thread.CurrentThread.CurrentUICulture.IetfLanguageTag, out T value) ||
+            if (i.TryGetValue(Thread.CurrentThread.CurrentUICulture.IetfLanguageTag, out var value) ||
                 i.TryGetValue(Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName, out value))
                 return value;
 

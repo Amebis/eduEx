@@ -21,8 +21,8 @@ namespace eduEx.Security
         /// <returns><c>true</c> when <paramref name="ss1"/> equals <paramref name="ss2"/>; <c>false</c> otherwise</returns>
         public static bool IsEqualTo(this SecureString ss1, SecureString ss2)
         {
-            IntPtr bstr1 = IntPtr.Zero;
-            IntPtr bstr2 = IntPtr.Zero;
+            var bstr1 = IntPtr.Zero;
+            var bstr2 = IntPtr.Zero;
             try
             {
                 bstr1 = Marshal.SecureStringToBSTR(ss1);

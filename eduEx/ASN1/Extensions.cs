@@ -47,7 +47,7 @@ namespace eduEx.ASN1
 
             // Read length.
             var length = reader.ReadASN1Length();
-            long dataEnd = length + reader.BaseStream.Position;
+            var dataEnd = length + reader.BaseStream.Position;
 
             try
             {
@@ -91,7 +91,7 @@ namespace eduEx.ASN1
                 throw new ArgumentOutOfRangeException();
 
             // Parse integer.
-            int value = isPositive ? data[i] : data[i] - 0x100;
+            var value = isPositive ? data[i] : data[i] - 0x100;
             for (i++; i < length; i++)
                 value = value * 0x100 + data[i];
 
@@ -113,7 +113,7 @@ namespace eduEx.ASN1
             var length = reader.ReadASN1Length();
             if (length < 1)
                 throw new ArgumentOutOfRangeException(nameof(length));
-            long dataEnd = length + reader.BaseStream.Position;
+            var dataEnd = length + reader.BaseStream.Position;
 
             try
             {
@@ -161,7 +161,7 @@ namespace eduEx.ASN1
             // SEQUENCE(RSAPrivateKey)
             if (reader.ReadByte() != 0x30)
                 throw new InvalidDataException();
-            long dataEnd = reader.ReadASN1Length() + reader.BaseStream.Position;
+            var dataEnd = reader.ReadASN1Length() + reader.BaseStream.Position;
 
             try
             {
@@ -182,7 +182,7 @@ namespace eduEx.ASN1
                 };
 
                 // .NET does not like PKCS padding. However, it still requires RSA parameter lengths to be in sync.
-                int length = Math.Max(rsa.Modulus.Length / 2, Math.Max(rsa.D.Length / 2, Math.Max(rsa.P.Length, Math.Max(rsa.Q.Length, Math.Max(rsa.DP.Length, Math.Max(rsa.DQ.Length, rsa.InverseQ.Length))))));
+                var length = Math.Max(rsa.Modulus.Length / 2, Math.Max(rsa.D.Length / 2, Math.Max(rsa.P.Length, Math.Max(rsa.Q.Length, Math.Max(rsa.DP.Length, Math.Max(rsa.DQ.Length, rsa.InverseQ.Length))))));
                 rsa.Modulus = AddPositivePadding(rsa.Modulus, length * 2);
                 rsa.D = AddPositivePadding(rsa.D, length * 2);
                 rsa.P = AddPositivePadding(rsa.P, length);
