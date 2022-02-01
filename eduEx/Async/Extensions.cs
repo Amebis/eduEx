@@ -1,7 +1,7 @@
 ﻿/*
     eduEx - Extensions for .NET
 
-    Copyright: 2021-2022 The Commons Conservancy eduVPN Programme
+    Copyright: 2021-2022 The Commons Conservancy
     SPDX-License-Identifier: GPL-3.0+
 */
 
