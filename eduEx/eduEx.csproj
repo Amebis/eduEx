@@ -35,6 +35,7 @@
     <Compile Include="System\Collections\Generic\Extensions.cs" />
     <Compile Include="System\Extensions.cs" />
     <Compile Include="System\IO\Extensions.cs" />
+    <Compile Include="System\Net\WebExceptionEx.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
